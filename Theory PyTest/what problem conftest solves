@@ -1,0 +1,52 @@
+The Problem Without conftest.py
+Imagine you have two test files.
+
+file1 -> test_login.py
+import pytest
+
+@pytest.fixture()
+def browser():
+    print("open browser")
+    yield
+    print("close browser")
+
+def test_login(browser):
+    print("login test")
+
+file2 -> test_cart.py
+def test_cart(browser):
+    print("cart test")
+
+Now what happens?
+If you run pytest:
+fixture 'browser' not found
+
+
+Why?
+Because browser fixture exists only in test_login.py.
+Fixtures are local to the file they are written in.
+
+-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x
+
+The Solution → conftest.py
+
+PyTest created a special file called:
+conftest.py
+
+Purpose:
+
+Store shared fixtures so all test files can use them automatically
+
+Think of it like a global fixture storage.
+
+
+
+Project Structure
+project
+│
+├── conftest.py
+├── test_login.py
+├── test_cart.py
+
+
+refer to conftest folder for practical knowledge

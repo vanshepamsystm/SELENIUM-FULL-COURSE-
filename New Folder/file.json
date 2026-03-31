@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "username": "Vansh",
+      "password": "1234",
+      "gender": "Male"
+    },
+    {
+      "username": "sid",
+      "password": "12324",
+      "gender": "Male"
+    }
+  ]
+}
